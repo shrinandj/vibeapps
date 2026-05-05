@@ -1,0 +1,8 @@
+name: app1
+description: Hello-name form demo
+runtime:
+  python: "3.12"
+# Everything below is optional. Defaults:
+#   path: /app1               (derived from directory name)
+#   replicas: 1
+#   resources: { cpu: 100m, memory: 128Mi }

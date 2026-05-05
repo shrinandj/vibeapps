@@ -1,0 +1,21 @@
+name: app2
+description: Bucket Browser
+runtime:
+  python: "3.12"
+resources:
+  cpu: 200m
+  memory: 256Mi
+replicas: 1
+# Plain env (non-secret)
+env:
+  LOG_LEVEL: info
+# Managed dependencies. vibeappserver provisions these and
+# injects the listed env vars into the pod automatically.
+addons:
+  - type: s3-bucket
+    name: super-duper-infra-bucket
+    bind:
+      endpoint: MINIO_ENDPOINT
+      bucket: BUCKET_NAME
+      accessKey: ACCESS_KEY      # written to a Secret, mounted as env
+      secretKey: SECRET_KEY
